@@ -29,6 +29,14 @@ public class LionCage implements AnimalCage {
     }
 
     @Override
+    public String toString() {
+        return "LionCage{" +
+                "cleanCage=" + cleanCage +
+                ", lion=" + lion +
+                '}';
+    }
+
+    @Override
     public int addFoodCage(int foodWeight) {
         return 0;
     }
@@ -37,6 +45,11 @@ public class LionCage implements AnimalCage {
     public int clearCage() {
         cleanCage = 0;
         return cleanCage;
+    }
+
+    @Override
+    public Animal getFirstAnimal() {
+        return null;
     }
 
 }

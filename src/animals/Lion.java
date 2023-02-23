@@ -6,8 +6,10 @@ public class Lion extends Animal {
     private static int MAX_WEIGHT = 100;
     protected static final String TYPE = "Lion";
 
-    public Lion(int age, int weight, int countLimbs) {
+    public Lion(int age, int weight, int countLimbs, int maneVolume) {
         super(age, weight, countLimbs);
+        this.maneVolume = maneVolume;
+
     }
 
     public int getManeVolume() {

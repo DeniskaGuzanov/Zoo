@@ -7,6 +7,9 @@ public interface AnimalCage {
     int addFoodCage(int foodWeight);
     int clearCage();
 
+    Animal getFirstAnimal();
+
+
 
 
 }
