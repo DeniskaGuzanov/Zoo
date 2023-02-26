@@ -40,11 +40,12 @@ public abstract class Animal {
 
 
     public void feed (int foodWeight) {
-        if(this.weight + foodWeight <= getMaxWeight()) {
-            this.weight = foodWeight + this.weight;
+        if(this.weight + foodWeight > getMaxWeight()) {
+            weight = getMaxWeight();
+            System.out.println("Максимальный вес превышен");
         }
         else {
-            System.out.println("Максимальный вес превышен");
+            weight = weight + foodWeight;
         }
     }
 
