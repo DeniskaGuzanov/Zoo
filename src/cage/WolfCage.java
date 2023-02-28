@@ -9,7 +9,7 @@ import java.util.Collections;
 import java.util.Random;
 
 public class WolfCage implements AnimalCage<Wolf> {
-    private int cleanCage;
+    private int volumeOfGarbage;
     private ArrayList wolf;
     private int wolfCount;
     protected static final int MAX_CLEAN_CAGE = 40;
@@ -17,11 +17,12 @@ public class WolfCage implements AnimalCage<Wolf> {
     public WolfCage(ArrayList<Wolf> wolf) {
         this.wolf = wolf;
         this.wolfCount = wolf.size();
-        cleanCage = wolfCount;
+        volumeOfGarbage = wolfCount;
     }
 
-    public int getCleanCage() {
-        return cleanCage;
+
+    public int getVolumeOfGarbage() {
+        return volumeOfGarbage;
     }
 
     public int getWolfCount() {
@@ -42,13 +43,13 @@ public class WolfCage implements AnimalCage<Wolf> {
 
         wolf.add((Wolf) wolfe);
         wolfCount++;
-        cleanCage += 2;
+        volumeOfGarbage += 4;
     }
 
     @Override
     public String toString() {
         return "WolfCage{" +
-                "cleanCage=" + cleanCage +
+                "volumeOfGarbage=" + volumeOfGarbage +
                 ", wolf=" + wolf +
                 ", wolfCount=" + wolfCount +
                 '}';
@@ -57,13 +58,13 @@ public class WolfCage implements AnimalCage<Wolf> {
     @Override
     public void addFoodCage(int foodWeight) {
 
-        cleanCage = cleanCage + foodWeight;
+        volumeOfGarbage = volumeOfGarbage + foodWeight;
     }
 
     @Override
     public void clearCage() {
-        if (cleanCage > MAX_CLEAN_CAGE) {
-            cleanCage = 0;
+        if (volumeOfGarbage > MAX_CLEAN_CAGE) {
+            volumeOfGarbage = 0;
             System.out.println("Клетка очищена");
         } else {
             System.out.println("Клетка не грязная");

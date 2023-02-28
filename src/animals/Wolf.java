@@ -45,9 +45,9 @@ public class Wolf extends Animal implements Comparable<Wolf>{
     @Override
     public int compareTo(Wolf o) {
 
-        if (this.weight > o.weight && (this.age > o.age)) {
+        if (this.age > o.age) {
             return 1;
-        } else if (this.weight < o.weight && this.age < o.age) {
+        } else if (this.age < o.age) {
             return -1;
         }
         return 0;

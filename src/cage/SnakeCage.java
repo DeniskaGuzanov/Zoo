@@ -11,7 +11,7 @@ import java.util.Random;
 
 public class SnakeCage implements AnimalCage<Snake>{
 
-    private int cleanCage;
+    private int volumeOfGarbage;
     private ArrayList snake;
     private int snakeCount;
     protected  static final int MAX_CLEAN_CAGE = 20;
@@ -19,11 +19,11 @@ public class SnakeCage implements AnimalCage<Snake>{
     public SnakeCage(ArrayList<Snake> snake) {
         this.snake = snake;
         snakeCount = snake.size();
-        cleanCage = this.snakeCount;
+        volumeOfGarbage = this.snakeCount;
     }
 
-    public int getCleanCage() {
-        return cleanCage;
+    public int getVolumeOfGarbage() {
+        return volumeOfGarbage;
     }
 
     public int getSnakeCount() {
@@ -41,7 +41,7 @@ public class SnakeCage implements AnimalCage<Snake>{
     @Override
     public String toString() {
         return "SnakeCage{" +
-                "cleanCage=" + cleanCage +
+                "volumeOfGarbage=" + volumeOfGarbage+
                 ", snake=" + snake +
                 ", snakeCount=" + snakeCount +
                 '}';
@@ -51,21 +51,21 @@ public class SnakeCage implements AnimalCage<Snake>{
     public void addAnimalCage(Snake snakes) {
         snake.add((Snake) snakes);
         snakeCount++;
-        cleanCage += 2;
+        volumeOfGarbage += 3;
 
     }
 
     @Override
     public void addFoodCage(int foodWeight) {
 
-        cleanCage = cleanCage + foodWeight;
+        volumeOfGarbage = volumeOfGarbage + foodWeight;
     }
 
     @Override
     public void clearCage() {
 
-        if(cleanCage > MAX_CLEAN_CAGE){
-            cleanCage = 0;
+        if(volumeOfGarbage > MAX_CLEAN_CAGE){
+            volumeOfGarbage = 0;
             System.out.println("Клетка очищена");
         }else {
             System.out.println("Клетка не гряная");

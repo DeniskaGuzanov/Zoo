@@ -10,13 +10,13 @@ import java.util.Random;
 
 public class LionCage implements AnimalCage<Lion> {
 
-    private int cleanCage;
+    private int volumeOfGarbage;
     private ArrayList lion;
     private int lionCount;
     protected  static final int MAX_CLEAN_CAGE = 40;
 
     public LionCage(ArrayList<Lion> lion) {
-        this.cleanCage = cleanCage;
+        volumeOfGarbage = this.lionCount;
         this.lion = lion;
         lionCount = lion.size();
     }
@@ -25,8 +25,8 @@ public class LionCage implements AnimalCage<Lion> {
         return lionCount;
     }
 
-    public int getCleanCage() {
-        return cleanCage;
+    public int getVolumeOfGarbage() {
+        return volumeOfGarbage;
     }
 
     public ArrayList getLion() {
@@ -38,12 +38,14 @@ public class LionCage implements AnimalCage<Lion> {
     public void addAnimalCage(Lion lions) {
         lion.add((Lion) lions);
         lionCount++;
+        volumeOfGarbage += 5;
+
     }
 
     @Override
     public String toString() {
         return "LionCage{" +
-                "cleanCage=" + cleanCage +
+                "volumeOfGarbage=" + volumeOfGarbage +
                 ", lion=" + lion +
                 ", lionCount=" + lionCount +
                 '}';
@@ -51,13 +53,13 @@ public class LionCage implements AnimalCage<Lion> {
 
     @Override
     public void addFoodCage(int foodWeight) {
-        cleanCage = cleanCage + foodWeight;
+        volumeOfGarbage = volumeOfGarbage + foodWeight;
     }
 
     @Override
     public void clearCage() {
-        if (cleanCage > MAX_CLEAN_CAGE) {
-            cleanCage = 0;
+        if (volumeOfGarbage > MAX_CLEAN_CAGE) {
+            volumeOfGarbage = 0;
             System.out.println("Клетка очищена");
         }   else {
             System.out.println("Клетка не грязная");
