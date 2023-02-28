@@ -7,7 +7,8 @@ public interface AnimalCage<T extends Animal> {
     void addFoodCage(int foodWeight);
     void clearCage();
 
-    Animal getFirstAnimal();
+
+    T getFirstAnimal();
 
 
 
