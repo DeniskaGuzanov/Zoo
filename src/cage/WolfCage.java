@@ -6,18 +6,19 @@ import animals.WolfComparator;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class WolfCage implements AnimalCage<Wolf> {
     private int volumeOfGarbage;
-    private ArrayList wolf;
+    private List<Wolf> wolf;
     private int wolfCount;
     protected static final int MAX_CLEAN_CAGE = 40;
 
-    public WolfCage(ArrayList<Wolf> wolf) {
+    public WolfCage(List<Wolf> wolf) {
         this.wolf = wolf;
         this.wolfCount = wolf.size();
-        volumeOfGarbage = wolfCount;
+        volumeOfGarbage = wolfCount * 4;
     }
 
 
@@ -30,11 +31,11 @@ public class WolfCage implements AnimalCage<Wolf> {
     }
 
 
-    public ArrayList getWolf() {
+    public List<Wolf> getWolf() {
         return wolf;
     }
 
-    public void setWolf(ArrayList wolf) {
+    public void setWolf(List wolf) {
         this.wolf = wolf;
     }
 
@@ -51,7 +52,6 @@ public class WolfCage implements AnimalCage<Wolf> {
         return "WolfCage{" +
                 "volumeOfGarbage=" + volumeOfGarbage +
                 ", wolf=" + wolf +
-                ", wolfCount=" + wolfCount +
                 '}';
     }
 
@@ -84,6 +84,28 @@ public class WolfCage implements AnimalCage<Wolf> {
             this.wolf.remove(wolfRandom);
             System.out.println("Достали волка из клетки" + wolfRandom);
             return wolf1;
+        }
+
+    }
+
+    @Override
+    public Wolf getChooseAnAnimal(double animalParametr) {
+
+        Wolf animalWoolf;
+        int temp = -1;
+        for (int i = 0; i < this.wolf.size(); i++) {
+            if (this.wolf.get(i).getHeightWolf() == animalParametr) {
+                temp = i;
+                break;
+            }
+        }
+        if (temp == -1) {
+            System.out.println("Такого  волка нет в клетке");
+            return null;
+        }  else {
+            animalWoolf = wolf.get(temp);
+            wolf.remove(temp);
+            return animalWoolf;
         }
 
     }

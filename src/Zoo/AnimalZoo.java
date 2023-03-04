@@ -6,15 +6,46 @@ import animals.Wolf;
 import cage.AnimalCage;
 
 public class AnimalZoo {
+    private AnimalCage lionAnimalCage;
+    private AnimalCage  snakeAnimalCage;
+    private AnimalCage  wolfAnimalCage;
 
-    public Lion getFirstLion(){
-       return this.lionAnimalCage.getFirstAnimal();
-
+    public AnimalZoo(AnimalCage lionAnimalCage, AnimalCage snakeAnimalCage, AnimalCage wolfAnimalCage) {
+        this.lionAnimalCage = lionAnimalCage;
+        this.snakeAnimalCage = snakeAnimalCage;
+        this.wolfAnimalCage = wolfAnimalCage;
     }
 
+    @Override
+    public String toString() {
+        return "AnimalZoo{" +
+                "lionAnimalCage=" + lionAnimalCage +
+                ", snakeAnimalCage=" + snakeAnimalCage +
+                ", wolfAnimalCage=" + wolfAnimalCage +
+                '}';
+    }
 
-    private AnimalCage<Lion> lionAnimalCage;
-    private AnimalCage<Snake> snakeAnimalCage;
-    private AnimalCage<Wolf> wolfAnimalCage;
+    public void addLion(Lion lion){
+        this.lionAnimalCage.addAnimalCage(lion);
+    }
+    public void  addSnake(Snake snake){
+        this.snakeAnimalCage.addAnimalCage(snake);
+    }
+    public void addWolf(Wolf wolf){
+        this.wolfAnimalCage.addAnimalCage(wolf);
+    }
 
+    public Lion takeOutLion(double maneLion){
+        return (Lion) this.lionAnimalCage.getFirstAnimal();
+    }
+
+    public Snake takeOutSnake(double lengthSnake){
+        return (Snake) this.snakeAnimalCage.getFirstAnimal();
+    }
+
+    public Wolf takeOutWolf(double heightWolf){ return (Wolf) this.wolfAnimalCage.getFirstAnimal(); }
+
+
+    public void takeOutSnake(int lengthSnake) {
+    }
 }

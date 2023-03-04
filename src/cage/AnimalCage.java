@@ -9,6 +9,8 @@ public interface AnimalCage<T extends Animal> {
 
 
     T getFirstAnimal();
+    T getChooseAnAnimal(double animalParametr);
+
 
 
 

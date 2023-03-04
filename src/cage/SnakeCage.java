@@ -1,25 +1,23 @@
 package cage;
 
-import animals.Animal;
-import animals.LionComparator;
-import animals.Snake;
-import animals.Wolf;
+import animals.*;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class SnakeCage implements AnimalCage<Snake>{
 
     private int volumeOfGarbage;
-    private ArrayList snake;
+    private List<Snake> snake;
     private int snakeCount;
     protected  static final int MAX_CLEAN_CAGE = 20;
 
-    public SnakeCage(ArrayList<Snake> snake) {
+    public SnakeCage(List<Snake> snake) {
         this.snake = snake;
         snakeCount = snake.size();
-        volumeOfGarbage = this.snakeCount;
+        volumeOfGarbage = snakeCount * 3;
     }
 
     public int getVolumeOfGarbage() {
@@ -30,11 +28,11 @@ public class SnakeCage implements AnimalCage<Snake>{
         return snakeCount;
     }
 
-    public ArrayList getSnake() {
+    public List<Snake> getSnake() {
         return snake;
     }
 
-    public void setSnake(ArrayList snake) {
+    public void setSnake(List snake) {
         this.snake = snake;
     }
 
@@ -43,7 +41,6 @@ public class SnakeCage implements AnimalCage<Snake>{
         return "SnakeCage{" +
                 "volumeOfGarbage=" + volumeOfGarbage+
                 ", snake=" + snake +
-                ", snakeCount=" + snakeCount +
                 '}';
     }
 
@@ -88,10 +85,32 @@ public class SnakeCage implements AnimalCage<Snake>{
         }
 
     }
-    public  void  sortLions(){
+
+    @Override
+    public Snake getChooseAnAnimal(double animalParametr) {
+        Snake animalSnake;
+        int temp = -1;
+        for (int i = 0; i < this.snake.size(); i++) {
+            if (this.snake.get(i).getBodyLength() == animalParametr) {
+                temp = i;
+                break;
+            }
+        }
+        if (temp == -1) {
+            System.out.println("Змеи такой длины нет в клетке");
+            return null;
+        } else {
+            animalSnake = snake.get(temp);
+            snake.remove(temp);
+            return animalSnake;
+        }
+
+    }
+
+    public  void  sortSnake(){
         Collections.sort(snake);
     }
-    public void sortByVolume(){
-        Collections.sort(snake, new LionComparator());
+    public void sortByBodyLength(){
+        Collections.sort(snake, new SnakeComparator());
     }
 }

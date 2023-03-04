@@ -1,6 +1,8 @@
 package terminal;
 
+import java.util.List;
+
 public interface CommandParser {
-    String[] parseCommand (String inputCommand);
+    Command parseCommand(List<Integer> parser);
 
 }

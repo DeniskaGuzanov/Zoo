@@ -3,22 +3,22 @@ package cage;
 import animals.Animal;
 import animals.Lion;
 import animals.LionComparator;
-
-import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 
 public class LionCage implements AnimalCage<Lion> {
 
     private int volumeOfGarbage;
-    private ArrayList lion;
+    private List<Lion> lion;
     private int lionCount;
     protected  static final int MAX_CLEAN_CAGE = 40;
 
-    public LionCage(ArrayList<Lion> lion) {
-        volumeOfGarbage = this.lionCount;
+
+    public LionCage(List<Lion> lion){
         this.lion = lion;
-        lionCount = lion.size();
+        this.lionCount = lionCount;
+        volumeOfGarbage = this.lionCount * 5;
     }
 
     public int getLionCount() {
@@ -29,7 +29,7 @@ public class LionCage implements AnimalCage<Lion> {
         return volumeOfGarbage;
     }
 
-    public ArrayList getLion() {
+    public List<Lion> getLion() {
         this.lion = lion;
         return lion;
     }
@@ -47,7 +47,6 @@ public class LionCage implements AnimalCage<Lion> {
         return "LionCage{" +
                 "volumeOfGarbage=" + volumeOfGarbage +
                 ", lion=" + lion +
-                ", lionCount=" + lionCount +
                 '}';
     }
 
@@ -81,8 +80,31 @@ public class LionCage implements AnimalCage<Lion> {
             return lion1;
         }
     }
-    public  void  sortLions(ArrayList<Lion> lions){
-        Collections.sort(lions);
+
+    @Override
+    public Lion getChooseAnAnimal(double animalParametr) {
+        Lion animalLion;
+        int temp = -1;
+        for (int i = 0; i < this.lion.size(); i++) {
+            if (this.lion.get(i).getManeVolume() == animalParametr) {
+                temp = i;
+                break;
+            }
+        }
+        if (temp == -1) {
+            System.out.println("Льва с такой гривой нет в клетке");
+            return null;
+        }  else {
+            animalLion = lion.get(temp);
+            lion.remove(temp);
+            return animalLion;
+        }
+
+
+    }
+
+    public  void  sortLions(){
+        Collections.sort(lion);
     }
     public void sortByVolume(){
         Collections.sort(lion, new LionComparator());

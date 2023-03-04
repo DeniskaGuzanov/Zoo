@@ -5,19 +5,19 @@ public class Wolf extends Animal implements Comparable<Wolf>{
     private static int MAX_WEIGHT = 70;
     private static final String TYPE = "Wolf";
 
-    private String colorWolf;
+    protected double heightWolf;
 
-    public Wolf(int age, int weight, int countLimbs, String colorWolf) {
+    public Wolf(int age, int weight, int countLimbs, double heightWolf) {
         super(age, weight, countLimbs);
-        this.colorWolf = colorWolf;
+        this.heightWolf = heightWolf;
     }
 
-    public String getColorWolf() {
-        return colorWolf;
+    public double getHeightWolf() {
+        return heightWolf;
     }
 
-    public void setColorWolf(String colorWolf) {
-        this.colorWolf = colorWolf;
+    public void setHeightWolf(double heightWolf) {
+        this.heightWolf = heightWolf;
     }
 
     @Override
@@ -26,7 +26,7 @@ public class Wolf extends Animal implements Comparable<Wolf>{
                 "age=" + age +
                 ", weight=" + weight +
                 ", countLimbs=" + countLimbs +
-                ",colorWolf=" + colorWolf +
+                ",heightWolf=" + heightWolf +
                 '}';
     }
 
