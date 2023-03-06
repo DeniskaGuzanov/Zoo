@@ -8,9 +8,9 @@ public class DeleteLionExecutable implements CommandExecutable {
 
 
 
-    public DeleteLionExecutable (AnimalZoo animalZoo, int maneLion){
+    public DeleteLionExecutable (AnimalZoo animalZoo, Command command){
         this.animalZoo = animalZoo;
-        this.maneLion = maneLion;
+        this.maneLion = command.getCommandParameters().get(2);
     }
 
     @Override

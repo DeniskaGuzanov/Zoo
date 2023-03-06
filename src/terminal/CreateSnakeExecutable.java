@@ -7,9 +7,10 @@ public class CreateSnakeExecutable implements CommandExecutable{
     private AnimalZoo animalZoo;
     private Snake snake;
 
-    public CreateSnakeExecutable(AnimalZoo animalZoo, Snake snake) {
+    public CreateSnakeExecutable(AnimalZoo animalZoo, Command command) {
         this.animalZoo = animalZoo;
-        this.snake = snake;
+        this.snake = new Snake(command.getCommandParameters().get(1), command.getCommandParameters().get(2),
+                command.getCommandParameters().get(3),command.getCommandParameters().get(4));
     }
 
     @Override

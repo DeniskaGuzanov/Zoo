@@ -8,9 +8,9 @@ public class DeleteSnakeExecutable implements CommandExecutable{
     private int lengthSnake;
 
 
-    public DeleteSnakeExecutable(AnimalZoo animalZoo, int lengthSnake) {
+    public DeleteSnakeExecutable(AnimalZoo animalZoo, Command command) {
         this.animalZoo = animalZoo;
-        this.lengthSnake = lengthSnake;
+        this.lengthSnake = command.getCommandParameters().get(2);
     }
 
     @Override

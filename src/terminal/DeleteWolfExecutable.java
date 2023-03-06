@@ -6,9 +6,9 @@ public class DeleteWolfExecutable implements CommandExecutable{
     private AnimalZoo animalZoo;
     private int heightWolf;
 
-    public DeleteWolfExecutable(AnimalZoo animalZoo, int heightWolf) {
+    public DeleteWolfExecutable(AnimalZoo animalZoo, Command command) {
         this.animalZoo = animalZoo;
-        this.heightWolf = heightWolf;
+        this.heightWolf = command.getCommandParameters().get(2);
     }
 
     @Override

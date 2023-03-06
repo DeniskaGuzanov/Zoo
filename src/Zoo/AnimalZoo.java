@@ -27,17 +27,19 @@ public class AnimalZoo {
 
     public void addLion(Lion lion){
         this.lionAnimalCage.addAnimalCage(lion);
+        System.out.println("Добавлен : " + lion);
     }
     public void  addSnake(Snake snake){
         this.snakeAnimalCage.addAnimalCage(snake);
+        System.out.println("Добавлен : " + snake);
     }
     public void addWolf(Wolf wolf){
         this.wolfAnimalCage.addAnimalCage(wolf);
+        System.out.println("Добавлен : " + wolf);
     }
 
     public Lion takeOutLion(double maneLion){
-        return (Lion) this.lionAnimalCage.getFirstAnimal();
-    }
+        return (Lion) this.lionAnimalCage.getFirstAnimal();}
 
     public Snake takeOutSnake(double lengthSnake){
         return (Snake) this.snakeAnimalCage.getFirstAnimal();
@@ -46,6 +48,4 @@ public class AnimalZoo {
     public Wolf takeOutWolf(double heightWolf){ return (Wolf) this.wolfAnimalCage.getFirstAnimal(); }
 
 
-    public void takeOutSnake(int lengthSnake) {
-    }
 }

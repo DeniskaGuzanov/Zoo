@@ -5,12 +5,6 @@ import animals.Wolf;
 import cage.LionCage;
 import cage.SnakeCage;
 import cage.WolfCage;
-import factory.LionsFactory;
-import factory.WolfFactory;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static factory.LionsFactory.createLions;

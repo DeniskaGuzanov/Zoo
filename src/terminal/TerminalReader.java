@@ -9,8 +9,6 @@ public class TerminalReader {
     public static TerminalReader terminalReader;
     private CommandParser commandParser;
     private AnimalZoo animalZoo;
-    private CommandExecutableFactory commandExecutableFactory;
-    private Command command;
 
 
     private TerminalReader(CommandParser commandParser){
@@ -22,7 +20,6 @@ public class TerminalReader {
             terminalReader = new TerminalReader(commandParser);
         }
         terminalReader.animalZoo = animalZoo;
-        terminalReader.commandExecutableFactory = new CommandExecutableFactory();
         return terminalReader;
 
     }
@@ -30,11 +27,13 @@ public class TerminalReader {
     public void endless() {
         while(true) {
 
-            this.commandExecutableFactory.chooseCommandExecutable(this.animalZoo, this.command);
-            CommandExecutable commandExecutable = (CommandExecutable) commandExecutableFactory.createExecutable(this.animalZoo,this.command);
-            commandExecutable.execute();
+            Command terminalCommand = this.commandParser.parseCommand();
+            CommandExecutableFactory commandExecutableFactory = new CommandExecutableFactoryImpl();
+            commandExecutableFactory.createCommandExecutable(this.animalZoo, terminalCommand);
+            commandExecutableFactory.getCommandExecutable().execute();
             System.out.println(this.animalZoo);
         }
     }
+
 
 }
