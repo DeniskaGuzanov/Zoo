@@ -4,18 +4,18 @@ import java.util.List;
 
 public class Command implements CommandParser{
 
-    private int parametrAddDelAnimal;
+    private int parameterAddDelAnimal;
 
     private List<Integer> commandParameters;
 
 
     public Command(List<Integer> commandParameters) {
-        this.parametrAddDelAnimal = commandParameters.get(0) * 5 + commandParameters.get(1);
+        this.parameterAddDelAnimal = commandParameters.get(0) * 5 + commandParameters.get(1);
         this.commandParameters = commandParameters;
     }
 
     public int getParametrAddDelAnimal() {
-        return parametrAddDelAnimal;
+        return parameterAddDelAnimal;
     }
 
     public List<Integer> getCommandParameters() {

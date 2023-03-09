@@ -5,6 +5,9 @@ import animals.Wolf;
 import cage.LionCage;
 import cage.SnakeCage;
 import cage.WolfCage;
+import terminal.ParseCommand;
+import terminal.TerminalReader;
+
 import java.util.List;
 
 import static factory.LionsFactory.createLions;
@@ -34,7 +37,8 @@ public class Main {
         System.out.println(wolfCage);
 
         AnimalZoo animalZoo = new AnimalZoo(lionCage, snakeCage, wolfCage);
-
+        TerminalReader terminalReader = TerminalReader.newTerminalReader(new ParseCommand(), animalZoo);
+        terminalReader.endless();
 
 
     }

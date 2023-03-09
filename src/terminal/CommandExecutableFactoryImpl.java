@@ -6,10 +6,6 @@ public class CommandExecutableFactoryImpl implements CommandExecutableFactory{
 
     private CommandExecutable commandExecutable;
 
-    public CommandExecutableFactoryImpl(CommandExecutable commandExecutable) {
-        this.commandExecutable = commandExecutable;
-    }
-
     @Override
     public void createCommandExecutable(AnimalZoo animalZoo, Command command) {
         switch (command.getParametrAddDelAnimal()){

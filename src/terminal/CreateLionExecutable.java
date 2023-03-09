@@ -9,8 +9,7 @@ public class CreateLionExecutable implements CommandExecutable{
 
     public CreateLionExecutable(AnimalZoo animalZoo, Command command) {
         this.animalZoo = animalZoo;
-        this.lion = new Lion(command.getCommandParameters().get(1), command.getCommandParameters().get(2),
-                command.getCommandParameters().get(3), command.getCommandParameters().get(4));
+        this.lion = new Lion(command);
     }
 
     @Override

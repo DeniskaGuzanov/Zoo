@@ -4,6 +4,8 @@ import Zoo.AnimalZoo;
 
 import java.util.Scanner;
 
+import static terminal.AnimallParameter.menuAnimal;
+
 public class TerminalReader {
 
     public static TerminalReader terminalReader;
@@ -11,15 +13,16 @@ public class TerminalReader {
     private AnimalZoo animalZoo;
 
 
-    private TerminalReader(CommandParser commandParser){
+    public TerminalReader(AnimalZoo animalZoo, CommandParser commandParser) {
+        this.animalZoo = animalZoo;
         this.commandParser = commandParser;
     }
 
     public static TerminalReader newTerminalReader(CommandParser commandParser, AnimalZoo animalZoo){
         if (terminalReader == null){
-            terminalReader = new TerminalReader(commandParser);
+            terminalReader = new TerminalReader(animalZoo, commandParser);
         }
-        terminalReader.animalZoo = animalZoo;
+
         return terminalReader;
 
     }
@@ -27,7 +30,7 @@ public class TerminalReader {
     public void endless() {
         while(true) {
 
-            Command terminalCommand = this.commandParser.parseCommand();
+            Command terminalCommand = this.commandParser.parseCommand(menuAnimal());
             CommandExecutableFactory commandExecutableFactory = new CommandExecutableFactoryImpl();
             commandExecutableFactory.createCommandExecutable(this.animalZoo, terminalCommand);
             commandExecutableFactory.getCommandExecutable().execute();

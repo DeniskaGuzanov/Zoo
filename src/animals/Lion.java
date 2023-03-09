@@ -1,5 +1,7 @@
 package animals;
 
+import terminal.Command;
+
 import java.util.Random;
 
 public class Lion extends Animal implements Comparable<Lion>{
@@ -14,6 +16,11 @@ public class Lion extends Animal implements Comparable<Lion>{
         this.maneVolume = maneVolume;
     }
 
+    public Lion(Command command) {
+        super(command.getCommandParameters().get(1), command.getCommandParameters().get(2),
+                command.getCommandParameters().get(3));
+        this.maneVolume = command.getCommandParameters().get(2);
+    }
     public int getManeVolume() {
         return maneVolume;
     }

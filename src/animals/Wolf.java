@@ -1,5 +1,7 @@
 package animals;
 
+import terminal.Command;
+
 public class Wolf extends Animal implements Comparable<Wolf>{
 
     private static int MAX_WEIGHT = 70;
@@ -10,6 +12,12 @@ public class Wolf extends Animal implements Comparable<Wolf>{
     public Wolf(int age, int weight, int countLimbs, double heightWolf) {
         super(age, weight, countLimbs);
         this.heightWolf = heightWolf;
+    }
+
+    public Wolf(Command command) {
+        super(command.getCommandParameters().get(1), command.getCommandParameters().get(2),
+                command.getCommandParameters().get(3));
+        this.heightWolf = command.getCommandParameters().get(3);
     }
 
     public double getHeightWolf() {
